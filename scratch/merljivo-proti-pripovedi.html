@@ -1,0 +1,275 @@
+<title>Merljivo proti pripovedi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#F2EFEA;
+  --surface:#FFFFFF;
+  --surface-2:#F8F5EF;
+  --ink:#211C17;
+  --ink-2:#55504A;
+  --muted:#8C8477;
+  --line:#DED6C7;
+  --line-soft:#EBE5D9;
+  --accent:#6E3B4C;
+  --accent-2:#9C5A6E;
+  --accent-wash:#F3E5E8;
+  --infra:#B0651F;
+  --infra-wash:#F5E9DA;
+  --soft:#347A67;
+  --soft-wash:#DFEEE8;
+  --warn:#8A6100;
+  --shadow:0 1px 2px rgba(33,28,23,.05), 0 10px 28px rgba(33,28,23,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#171310;
+    --surface:#1F1A16;
+    --surface-2:#241E19;
+    --ink:#EDE7DE;
+    --ink-2:#B9AFA0;
+    --muted:#8C8477;
+    --line:#3A322A;
+    --line-soft:#2C261F;
+    --accent:#DD90A5;
+    --accent-2:#E8AABB;
+    --accent-wash:#2E1E22;
+    --infra:#E3A15C;
+    --infra-wash:#2C2115;
+    --soft:#6FC1AA;
+    --soft-wash:#152621;
+    --warn:#D9A94E;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.3);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#171310;
+  --surface:#1F1A16;
+  --surface-2:#241E19;
+  --ink:#EDE7DE;
+  --ink-2:#B9AFA0;
+  --muted:#8C8477;
+  --line:#3A322A;
+  --line-soft:#2C261F;
+  --accent:#DD90A5;
+  --accent-2:#E8AABB;
+  --accent-wash:#2E1E22;
+  --infra:#E3A15C;
+  --infra-wash:#2C2115;
+  --soft:#6FC1AA;
+  --soft-wash:#152621;
+  --warn:#D9A94E;
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px rgba(0,0,0,.3);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px;padding-block:0 70px}
+a{color:var(--accent)}
+strong{font-weight:600;color:var(--ink)}
+
+header.mast{border-bottom:2px solid var(--ink);padding-block:36px 20px;margin-bottom:8px}
+.kicker{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:600;
+}
+h1{
+  font-family:"Fraunces",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,7vw,46px);line-height:1.08;letter-spacing:-.015em;
+  margin:0 0 14px;text-wrap:balance;
+}
+.dek{font-size:17px;color:var(--ink-2);margin:0;max-width:60ch}
+.meta{
+  display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+.source-strip{
+  display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 44px;
+}
+.source-strip a{
+  display:block;flex:1 1 260px;background:var(--surface);border:1px solid var(--line);
+  border-radius:10px;padding:14px 16px;text-decoration:none;box-shadow:var(--shadow);
+}
+.source-strip .tag{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:8px;
+}
+.tag.infra{background:var(--infra-wash);color:var(--infra)}
+.tag.soft{background:var(--soft-wash);color:var(--soft)}
+.source-strip .stitle{font-size:14.5px;color:var(--ink);font-weight:600}
+.source-strip .ssub{font-size:12.5px;color:var(--muted);margin-top:3px}
+
+section{margin-block:44px}
+.sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:22px}
+.sec-num{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.08em}
+h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(21px,4vw,27px);line-height:1.2;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2 .h2tag{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 8px;border-radius:5px;vertical-align:2px;margin-left:10px;
+}
+.h2tag.infra{background:var(--infra-wash);color:var(--infra)}
+.h2tag.soft{background:var(--soft-wash);color:var(--soft)}
+p{margin:0 0 14px;max-width:66ch}
+
+.pt{
+  background:var(--surface);border:1px solid var(--line-soft);border-left:3px solid var(--infra);
+  padding:16px 18px;margin-bottom:12px;border-radius:0 8px 8px 0;box-shadow:var(--shadow);
+}
+.pt.soft{border-left-color:var(--soft)}
+.pt h3{margin:0 0 7px;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:17px;line-height:1.3}
+.pt p{margin:0;font-size:15px;color:var(--ink-2);max-width:none}
+.pt p strong{color:var(--ink)}
+
+.thread{
+  background:var(--accent-wash);border:1px solid var(--accent-2);border-radius:12px;
+  padding:26px 26px 8px;margin-top:6px;
+}
+.thread h2{color:var(--accent)}
+.thread .lede{font-size:18px;font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--ink);margin-bottom:18px;max-width:none}
+.thread .evid{display:grid;gap:12px;margin-bottom:18px}
+.thread .evid .row{
+  display:grid;grid-template-columns:96px 1fr;gap:4px 14px;font-size:14.5px;color:var(--ink-2);
+}
+.thread .evid .lab{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);padding-top:3px;
+}
+.thread .close{font-size:15px;margin-bottom:18px}
+
+ul.watch{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.watch li{
+  display:grid;grid-template-columns:100px 1fr;gap:4px 14px;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:8px;
+  padding:12px 16px;font-size:14.5px;color:var(--ink-2);
+}
+ul.watch .when{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--accent);
+  letter-spacing:.02em;padding-top:2px;
+}
+ul.watch li strong{color:var(--ink)}
+
+footer{margin-top:56px;padding-top:20px;border-top:2px solid var(--ink);font-size:13.5px;color:var(--muted)}
+footer p{max-width:70ch}
+
+@media (max-width:560px){
+  .thread .evid .row{grid-template-columns:1fr;gap:2px}
+  ul.watch li{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="kicker">Povzetek dveh petkovih pregledov · 18.–25. 9. 2026</p>
+  <h1>Merljivo proti pripovedi</h1>
+  <p class="dek">Ta teden sta oba avtomatizirana pregleda — o AI infrastrukturi in o AI monetizaciji v softwareu — neodvisno prišla do iste ugotovitve: trg nagrajuje samo tisto, kar je mogoče izmeriti, in kaznuje samo pripoved.</p>
+  <div class="meta">
+    <span>Izvorni poročili: 25. 9. 2026</span>
+    <span>Ta povzetek: 27. 9. 2026</span>
+    <span>Ni investicijski nasvet</span>
+  </div>
+</header>
+
+<div class="source-strip">
+  <a href="https://claude.ai/artifact/5qfVWmGNoBWtk2bdZHC1uZ">
+    <span class="tag infra">Petkov pregled · 22:00</span>
+    <div class="stitle">AI infrastruktura, teden 18.–25. 9.</div>
+    <div class="ssub">Celotno poročilo →</div>
+  </a>
+  <a href="https://claude.ai/artifact/RY2MjzERCfW2hFusWyhuaJ">
+    <span class="tag soft">Tedenski pregled · 22:30</span>
+    <div class="stitle">Naracija AI v softwaru</div>
+    <div class="ssub">Celotno poročilo →</div>
+  </a>
+</div>
+
+<section id="infra">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Infrastruktura<span class="h2tag infra">strojna oprema, energija</span></h2></div>
+  <p>Skupna slika: povpraševanje po AI se ne ustavlja, a se težišče seli stran od samih grafičnih pospeševalnikov (GPU) k stvarem okoli njih.</p>
+
+  <div class="pt">
+    <h3>Procesorji (CPU) so nazaj v igri</h3>
+    <p>Ko je Metin AI-agent Muse postal najbolj prenesena brezplačna aplikacija, so v enem dnevu skočile delnice Arm (+13&nbsp;%), Intela (+12&nbsp;%) in AMD (+9&nbsp;%) — brez da bi katero od podjetij karkoli objavilo. Agenti bolj obremenijo procesor in pomnilnik kot en sam velik model. <strong>Trg je to že v veliki meri vključil v cene.</strong></p>
+  </div>
+  <div class="pt">
+    <h3>Cene modelov padle za polovico v 48 urah</h3>
+    <p>Anthropic, OpenAI in xAI so skoraj hkrati znižali cene. To verjetno pomeni več uporabe agentov, kar dodatno obremeni pomnilnik in shrambo — manj pa same ponudnike modelov, ker se jim stisnejo marže.</p>
+  </div>
+  <div class="pt">
+    <h3>Čas do priklopa elektrike je postal pogodbeno tveganje</h3>
+    <p>Oracle je zaradi zamud pri plinovodu in okoljskih dovoljenjih sprožil klavzulo o "višji sili" za velik podatkovni center. Koristi vsem, ki ponujajo začasno rešitev (generatorji, gorivne celice, manjše lokacije); škodi tistim, vezanim na en velik, počasen projekt.</p>
+  </div>
+  <div class="pt">
+    <h3>Novo ozko grlo: substrati in napredno pakiranje čipov</h3>
+    <p>Obvladujejo jih le štirje dobavitelji na Japonskem in Tajvanu. To je po oceni poročila <strong>najmanj vključeno v cene delnic</strong> — najmanj prepoznano tveganje, a hkrati najtežje dostopno navadnemu vlagatelju.</p>
+  </div>
+  <div class="pt">
+    <h3>Kitajska gradi celo verigo, ne le lastne čipe</h3>
+    <p>Alibaba je napovedal 20&nbsp;GW podatkovnih centrov do 2032. To pomeni povpraševanje po pomnilniku, optiki in hlajenju tudi tam, kjer ameriških čipov ni — kar dolgoročno zmanjšuje Nvidiin kitajski trg, a to je bilo že prej znano.</p>
+  </div>
+</section>
+
+<section id="software">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Software<span class="h2tag soft">monetizacija, cenik</span></h2></div>
+  <p>Vzporeden, a ločen premik: ni več dovolj imeti AI zgodbo — trg zahteva vidno številko.</p>
+
+  <div class="pt soft">
+    <h3>Microsoft uvedel hibridni cenik</h3>
+    <p>Osnovna licenca plus doplačilo po dejanski porabi za napredna orodja. Koristi podjetjem, ki že znajo meriti porabo (Snowflake, Datadog, ServiceNow); pritiska na tiste, še vezane na "plačilo na zaposlenega" (Workday, HubSpot).</p>
+  </div>
+  <div class="pt soft">
+    <h3>Paychex: največja AI predstavitev tedna, delnica &minus;12,7&nbsp;%</h3>
+    <p>Podjetje ima ogromno lastnih podatkov in dober AI-pilot, a ni razkrilo nobene AI-številke in ni dvignilo napovedi. <strong>Sporočilo trga: pripovedovanje o AI brez razkrite številke ne šteje več.</strong></p>
+  </div>
+  <div class="pt soft">
+    <h3>CrowdStrike naredil iz podatkov plačljiv izdelek</h3>
+    <p>Petnajst let lastnih podatkov je postalo osnova za ločeno plačljivo zaščito AI-agentov (AIDR) — prihodek iz tega se je v enem četrtletju skoraj potrojil. Najmočnejši dokaz tedna, da imajo lastni podatki vrednost, <em>če</em> iz njih nastane izdelek s svojo ceno.</p>
+  </div>
+  <div class="pt soft">
+    <h3>TD SYNNEX: past "lažnega" AI prihodka</h3>
+    <p>Posel z AI strežniki je zrasel za 117&nbsp;%, a je podjetje pri tem porabilo skoraj milijardo dolarjev gotovine, ker vnaprej financira zaloge za stranke. Rast prihodka ni isto kot rast vrednosti.</p>
+  </div>
+  <div class="pt soft">
+    <h3>Salesforce: dostop za agente, a še brez cenika</h3>
+    <p>Dokler cene ni, ni mogoče oceniti, ali bo dostop brez uporabniškega vmesnika podjetju koristil ali škodil — torej ali agenti nadomestijo plačljive licence za zaposlene.</p>
+  </div>
+</section>
+
+<section id="thread">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Skupna nit</h2></div>
+  <div class="thread">
+    <p class="lede">Čeprav pokrivata različna dela verige, oba poročila povesta isto zgodbo: trg nagrajuje samo tisto, kar je mogoče izmeriti — in kaznuje samo pripoved.</p>
+    <div class="evid">
+      <div class="row"><span class="lab">Infrastruktura</span><span>Delnice so skočile na <em>signal o uporabi</em> (Muse), ne na napoved — a najbolj negotov del verige (substrati) je tisti, kjer številk še ni, in ga trg zato najbolj podcenjuje.</span></div>
+      <div class="row"><span class="lab">Software</span><span>Delnica z največjo AI predstavitvijo tedna (Paychex) je najbolj padla, ker ni razkrila številk; delnica z dokazano, hitro rastočo AI-prodajo (CrowdStrike) je najbolj zrasla.</span></div>
+    </div>
+    <p class="close">Skupno sporočilo za naslednje tedne: spremljati velja predvsem <strong>konkretna razkritja</strong>, ne nove napovedi ali predstavitve brez številk.</p>
+  </div>
+</section>
+
+<section id="watch">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Kaj spremljati naslednji teden</h2></div>
+  <ul class="watch">
+    <li><span class="when">30. 9.</span><span><strong>Micron</strong> — prvi resni test teze o pomanjkanju pomnilnika.</span></li>
+    <li><span class="when">1. 10.</span><span><strong>Accenture</strong> — ali lahko svetovalno podjetje raste brez rasti zaposlenih.</span></li>
+    <li><span class="when">odprto</span><span><strong>Salesforce</strong> — cenik za Headless 360 in AIforce, ključni manjkajoči podatek.</span></li>
+    <li><span class="when">v teku</span><span><strong>Strežniški CPU prihodki</strong> Intela, AMD in Arma za Q4 — potrditev ali zavrnitev infrastrukturne teze.</span></li>
+    <li><span class="when">v teku</span><span>Ali bo katero podjetje prvič <strong>ločeno razkrilo AI prihodek</strong> — pritisk po Paychexovi reakciji narašča.</span></li>
+  </ul>
+</section>
+
+<footer>
+  <p><strong>To ni investicijski nasvet.</strong> Ta stran povzema ključne ugotovitve dveh samodejno pripravljenih tedenskih pregledov (glej povezavi zgoraj za polno besedilo, vire in metodologijo). Vse verige posledic v izvirnih poročilih so sklepanje, ne napoved gibanja tečajev.</p>
+</footer>
+
+</div>
